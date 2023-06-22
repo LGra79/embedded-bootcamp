@@ -111,7 +111,7 @@ int main(void)
 	  uint16_t bitTwo = (pRxData[1] & 0x03) << 8; //this number is the last two bits of second byte, and the first two (non-zero) bits of our 10bit number. & 0x03 ensures that all bits aside from last two are zeroes.
 	  ADCval = bitTwo | pRxData[2]; //uses bitwise OR to combine the two last bits of second byte and the last byte to make our 10bit ADC number.
 	  uint16_t duty_cycle = ADCval;
-	  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, duty_cycle); //i pray this works. my duty cycle value is likely wrong, but this should update the counter. changed * to &.
+	  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, duty_cycle); //my duty cycle value is likely wrong, but this should update the counter. changed * to &.
     /* USER CODE BEGIN 3 */
   } /* USER CODE END WHILE */
   /* USER CODE END 3 */
